@@ -36,15 +36,13 @@ function fish_prompt --description 'Write out the prompt'
 
    end
 
-   if not set -q __fish_prompt_status
-     set -l prompt_status
+   set -l prompt_status
      if test $last_status -ne 0
         if not set -q __fish_prompt_status
            set -g __fish_prompt_status (set_color $fish_color_status)
         end
         set prompt_status "$__fish_prompt_status [$last_status]$__fish_prompt_normal"
      end
-   end
 
    if not set -q __fish_prompt_user
       set -g __fish_prompt_user (set_color $fish_color_user)
@@ -57,11 +55,9 @@ function fish_prompt --description 'Write out the prompt'
       set -g __fish_prompt_date_color (set_color $fish_color_status)
    end
 
-   if not set -q __fish_prompt_date
-      set -q __fish_prompt_date (date +%X)
-   end
+   set -g __fish_prompt_date (date +%X)
 
-   echo -n -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" ' at ' "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' in ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$__fish_prompt_date_color" " [$__fish_prompt_date]"
+   echo -n -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" ' at ' "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' in ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$__fish_prompt_date_color" ' [' "$__fish_prompt_date" ']'
     echo
     printf '↪ '
 end
