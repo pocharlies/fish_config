@@ -57,7 +57,7 @@ function fish_prompt --description 'Write out the prompt'
 
    set -g __fish_prompt_date (date +%X)
 
-   echo -n -s "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" ' at ' "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' in ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$__fish_prompt_date_color" ' [' "$__fish_prompt_date" ']'
+   echo -n -s "$__fish_prompt_date_color" '[' "$__fish_prompt_date" ']' ' ' "$__fish_prompt_user" "$USER" "$__fish_prompt_normal" ' at ' "$__fish_prompt_host" "$__fish_prompt_hostname" "$__fish_prompt_normal" ' in ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status"
     echo
     printf '↪ '
 end
