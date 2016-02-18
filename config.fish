@@ -1,1 +1,1 @@
-set -g -x PATH /usr/local/bin $PATH
+/Users/daniel.ibanez/Dropbox/Mackup/.config/fish/config.fish
